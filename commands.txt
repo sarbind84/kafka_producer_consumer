@@ -2,6 +2,15 @@ Windows
 D:\kafka>bin\windows\kafka-server-start.bat config\server.properties
 bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
 
+zooker start
+kafka start
+topic create
+
+Partitioning: Breaking up a big database into smaller pieces so it's easier to manage. Imagine dividing a cake into slices.
+
+Replication Factor: Making copies of those smaller pieces and spreading them out so if one piece (or server) breaks, there are backups available. Think of making photocopies of important documents.
+
+
 @Configuration -> @Bean NewTopic 
 1. define kafka port number in properties file bootstrap servers
 
