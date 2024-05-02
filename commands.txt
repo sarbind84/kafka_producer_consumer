@@ -1,4 +1,24 @@
 Windows
+D:\kafka>bin\windows\kafka-server-start.bat config\server.properties
+bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+
+@Configuration -> @Bean NewTopic 
+1. define kafka port number in properties file bootstrap servers
+
+@Service
+2. KafkaTemplate<String, String> kafkatemplate;
+public boolean updateLocation(String message){
+this.kafka.send("kafka-topic",message);
+}
+
+3.@Configuration
+public class KafkaConfig {
+    @KafkaListener(topics = AppConstants.LOCATION_UPDATE_TOPIC, groupId = AppConstants.GROUP_ID)
+    public void updatedLocation(String value) {
+        System.out.println(value);
+    }
+}
+
 ___________
 Create new topic 
 >bin\windows\kafka-topics.bat --create --topic user-topic --bootstrap-server localhost:9092
